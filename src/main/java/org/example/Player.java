@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Player implements IPlayer {
-    String name;
-    PrintStream out;
-    InputStream in;
+    private String name;
+    private PrintStream out;
+    private InputStream in;
 
     public Player(String name, PrintStream outStream, InputStream inputStream) {
         this.name = name;

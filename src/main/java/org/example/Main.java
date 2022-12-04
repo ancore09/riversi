@@ -9,11 +9,11 @@ public class Main {
         do {
             menu.printMenu();
             UserRequest req = menu.getAndHandleUserCommand();
-            if (req.exit) {
+            if (req.isExit()) {
                 exit = true;
                 playAgain = false;
-            } else if (req.playAgain) {
-                int score = req.game.start();
+            } else if (req.isPlayAgain()) {
+                int score = req.getGame().start();
                 stats.setBestScore(score);
                 playAgain = menu.askPlayAgain();
             }

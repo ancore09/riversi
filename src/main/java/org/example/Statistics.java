@@ -1,7 +1,7 @@
 package org.example;
 
 public class Statistics {
-    int bestScore;
+    private int bestScore;
 
     public int getBestScore() {
         return bestScore;

@@ -5,12 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Game {
-    Board board;
-    List<Board> history;
-    boolean firstPlayer = true;
-    int movesCount = 0;
-    IPlayer p1;
-    IPlayer p2;
+    private Board board;
+    private List<Board> history;
+    private boolean firstPlayer = true;
+    private int movesCount = 0;
+    private IPlayer p1;
+    private IPlayer p2;
 
     public Game(IPlayer p1, IPlayer p2) {
         this.p1 = p1;
@@ -22,9 +22,9 @@ public class Game {
 
     public int start() {
         board.initBoard();
-        while (board.possibleMoves.size() != 0) {
+        while (board.getPossibleMoves().size() != 0) {
             board.showPossibleMoves();
-            if (board.possibleMoves.size() == 0) {
+            if (board.getPossibleMoves().size() == 0) {
                 break;
             }
             history.add(board.clone());
@@ -45,7 +45,7 @@ public class Game {
     }
 
     public Point requestMove() {
-        var validMoves = board.possibleMoves;
+        var validMoves = board.getPossibleMoves();
         Point point;
         do {
             point = firstPlayer ? p1.getMove(board) : p2.getMove(board);
@@ -61,7 +61,7 @@ public class Game {
         int w = 0;
         int b = 0;
 
-        for (char[] chars : board.board) {
+        for (char[] chars : board.getBoard()) {
             for (char c : chars) {
                 if (c == 'b') {
                     b++;

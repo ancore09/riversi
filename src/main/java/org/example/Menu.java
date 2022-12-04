@@ -35,9 +35,9 @@ public class Menu {
                     var p1 = new Player(name, System.out, System.in);
                     var p2 = new ComputerPlayer(false, true);
 
-                    out.game = new Game(p1, p2);
-                    out.playAgain = true;
-                    out.exit = false;
+                    out.setGame(new Game(p1, p2));
+                    out.setPlayAgain(true);
+                    out.setExit(false);
 
                     return out;
                 }
@@ -47,9 +47,9 @@ public class Menu {
                     var p1 = new Player(name, System.out, System.in);
                     var p2 = new ComputerPlayer(false, false);
 
-                    out.game = new Game(p1, p2);
-                    out.playAgain = true;
-                    out.exit = false;
+                    out.setGame(new Game(p1, p2));
+                    out.setPlayAgain(true);
+                    out.setExit(false);
 
                     return out;
                 }
@@ -61,34 +61,35 @@ public class Menu {
                     String name2 = sc.next();
                     var p2 = new Player(name2, System.out, System.in);
 
-                    out.game = new Game(p1, p2);
-                    out.playAgain = true;
-                    out.exit = false;
+                    out.setGame(new Game(p1, p2));
+                    out.setPlayAgain(true);
+                    out.setExit(false);
 
                     return out;
                 }
                 case 4 -> {
                     System.out.println("Best session score: " + stats.getBestScore());
 
-                    out.game = null;
-                    out.playAgain = false;
-                    out.exit = false;
+                    out.setGame(null);
+                    out.setPlayAgain(false);
+                    out.setExit(false);
 
                     return out;
                 }
                 case 5 -> {
-                    out.game = null;
-                    out.playAgain = false;
-                    out.exit = true;
+                    out.setGame(null);
+                    out.setPlayAgain(false);
+                    out.setExit(true);
 
                     return out;
                 }
                 case 6 -> {
                     var p1 = new ComputerPlayer(true, false);
                     var p2 = new ComputerPlayer(false, false);
-                    out.game = new Game(p1, p2);
-                    out.playAgain = true;
-                    out.exit = false;
+
+                    out.setGame(new Game(p1, p2));
+                    out.setPlayAgain(true);
+                    out.setExit(false);
 
                     return out;
                 }

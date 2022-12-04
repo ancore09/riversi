@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Random;
 
 public class ComputerPlayer implements IPlayer {
-    String name = "bot";
-    boolean firstPlayer;
-    boolean isStupid;
+    private String name = "bot";
+    private boolean firstPlayer;
+    private boolean isStupid;
 
     public ComputerPlayer(boolean firstPlayer, boolean isStupid) {
         this.firstPlayer = firstPlayer;
@@ -25,13 +25,13 @@ public class ComputerPlayer implements IPlayer {
 
     Point getStupidMove(Board board) {
         var boardClone = new char[8][8];
-        for (int i = 0; i < board.board.length; i++) {
-            boardClone[i] = board.board[i].clone();
+        for (int i = 0; i < board.getBoard().length; i++) {
+            boardClone[i] = board.getBoard()[i].clone();
         }
 
         int maxEval = -100;
         List<Point> bestMoves = new ArrayList<>();
-        for (Point possibleMove : board.possibleMoves) {
+        for (Point possibleMove : board.getPossibleMoves()) {
             var eval = evaluatePosition(boardClone, possibleMove);
             if (eval > maxEval) {
                 maxEval = eval;
@@ -50,10 +50,10 @@ public class ComputerPlayer implements IPlayer {
     Point getSmartMove(Board board) {
         int maxEval = -10000;
         List<Point> bestMoves = new ArrayList<>();
-        for (Point possibleMove : board.possibleMoves) {
+        for (Point possibleMove : board.getPossibleMoves()) {
             var boardClone = new char[8][8];
-            for (int i = 0; i < board.board.length; i++) {
-                boardClone[i] = board.board[i].clone();
+            for (int i = 0; i < board.getBoard().length; i++) {
+                boardClone[i] = board.getBoard()[i].clone();
             }
 
             var eval = evaluatePosition(boardClone, possibleMove);

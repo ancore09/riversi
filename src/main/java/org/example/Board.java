@@ -3,11 +3,33 @@ package org.example;
 import java.util.*;
 
 public class Board {
-    public char[][] board;
-    boolean firstPlayer = true;
-    HashSet<Point> possibleMoves;
-    public Board() {
+    private char[][] board;
+    private boolean firstPlayer = true;
+    private HashSet<Point> possibleMoves;
+    public Board() {}
 
+    public HashSet<Point> getPossibleMoves() {
+        return possibleMoves;
+    }
+
+    public void setPossibleMoves(HashSet<Point> possibleMoves) {
+        this.possibleMoves = possibleMoves;
+    }
+
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(char[][] board) {
+        this.board = board;
+    }
+
+    public boolean isFirstPlayer() {
+        return firstPlayer;
+    }
+
+    public void setFirstPlayer(boolean firstPlayer) {
+        this.firstPlayer = firstPlayer;
     }
 
     public void initBoard() {
